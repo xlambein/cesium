@@ -60,7 +60,7 @@
 MY_CFLAGS =
 
 # The linker options.
-MY_LIBS   = -ljpeg -lsfml-graphics -lsfml-window -lsfml-system
+MY_LIBS   = 
 
 # The pre-processor options used by the cpp (man cpp for more).
 CPPFLAGS  = -Wall
