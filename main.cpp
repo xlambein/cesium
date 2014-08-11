@@ -1,19 +1,21 @@
 #include <exception>
 #include <iostream>
 
+#include "Core/EntityManager.hpp"
+#include "Core/ComponentTagManager.hpp"
 #include "Components/Transform.hpp"
 
 int main()
 {
-    EntityManager eMgr;
     // We register the component Transform so that it can be recognized by
-    // the entity manager
-    eMgr.registerComponent<Transform>();
+    // the engine
+    ComponentTagManager::registerComponent<Transform>();
+    
+    EntityManager eMgr;
 
-    // Entities are just IDs with components attached to it.
-    // When we "create" an entity, we simply ask the manager for a free ID
-    // to which we can add components. If we don't add any component to
-    // the entity, the ID stays free
+    // Entities are just IDs with components attached to them, so an int
+    // is enough to stock an entity
+    // TODO: create an Entity class to interface with the EntityManager
     int entity = eMgr.addEntity();
     eMgr.attach(entity, new Transform(50.f, 25.f, -45.f));
     
